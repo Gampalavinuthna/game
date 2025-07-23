@@ -20,10 +20,10 @@ const scoreSchema = new mongoose.Schema({
 
 const Score = mongoose.model('Score', scoreSchema);
 
-app.post('/submit', async (req, res) => {
-  const { username, score, moves } = req.body;
-  await Score.create({ username, score, moves });
-  res.json({ success: true });
+app.post('/submit-score', async (req, res) => {
+  const { name, score, time } = req.body;
+  await collection.insertOne({ name, score, time });
+  res.json({ message: 'Score saved successfully!' });
 });
 
 app.get('/leaderboard', async (req, res) => {
