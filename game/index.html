@@ -211,7 +211,7 @@
     function sendScoreToBackend() {
       const username = document.getElementById('username').value || 'Anonymous';
 
-      fetch('http://<your-backend-ec2-ip>:3000/submit-score', {
+      fetch('http://13.204.80.134:3000/submit-score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
