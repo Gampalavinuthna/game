@@ -7,11 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 // Replace with your MongoDB URI
-mongoose.connect('mongodb+srv://vinuthnagampala:Vinuthna07072005@cluster0.024tdsc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb+srv://vinuthnagampala:Vinuthna07072005@cluster0.024tdsc.mongodb.net/memorygame?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-
 const scoreSchema = new mongoose.Schema({
   username: String,
   score: Number,
