@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Replace with your MongoDB URI
-mongoose.connect('mongodb+srv://<username>:<password>@cluster.mongodb.net/memorygame', {
+mongoose.connect('mongodb+srv://vinuthnagampala:Vinuthna07072005@cluster0.024tdsc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
