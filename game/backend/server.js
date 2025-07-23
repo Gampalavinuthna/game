@@ -31,5 +31,6 @@ app.get('/leaderboard', async (req, res) => {
   const top = await Score.find().sort({ score: -1, timestamp: 1 }).limit(5);
   res.json(top);
 });
-
-app.listen(3000, () => console.log("✅ Server running on http://localhost:3000"));
+app.listen(3000, '0.0.0.0', () => {
+  console.log('✅ Server running on http://0.0.0.0:3000');
+});
