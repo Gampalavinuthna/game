@@ -24,6 +24,15 @@
       text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
     }
 
+    #username {
+      padding: 10px;
+      font-size: 1rem;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      width: 200px;
+    }
+
     #score {
       font-size: 1.3rem;
       margin: 10px;
@@ -107,6 +116,7 @@
 <body>
 
   <h1>🧠 Memory Flip Game</h1>
+  <input type="text" id="username" placeholder="Enter your name" />
   <div id="score">Score: 0</div>
   <div id="game-board"></div>
   <button onclick="startGame()">🔁 Restart Game</button>
@@ -166,6 +176,7 @@
         if (matchedPairs === symbols.length) {
           setTimeout(() => {
             alert('🎉 Congratulations! You matched all cards!');
+            sendScoreToBackend();
           }, 300);
         }
       } else {
@@ -186,7 +197,7 @@
     }
 
     function updateScore() {
-      document.getElementById('score').textContent = 'Score: ${score}';
+      document.getElementById('score').textContent = Score: ${score};
     }
 
     function shuffle(array) {
@@ -197,7 +208,22 @@
       return array;
     }
 
-    window.onload = startGame;
-  </script>
-</body>
-</html>
+    function sendScoreToBackend() {
+      const username = document.getElementById('username').value || 'Anonymous';
+
+      fetch('http://<your-backend-ec2-ip>:3000/submit-score', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: username,
+          score: score,
+          time: new Date().toISOString()
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to submit score');
+        }
+        return response.json
