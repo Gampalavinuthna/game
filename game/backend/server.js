@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Replace with your MongoDB URI
-mongoose.connect('mongodb+srv://vinuthnagampala:Vinuthna07072005@cluster0.024tdsc.mongodb.net/memorygame?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb://vinuthnagampala:Vinuthna07072005@ac-0qng7j4-shard-00-00.024tdsc.mongodb.net:27017,ac-0qng7j4-shard-00-01.024tdsc.mongodb.net:27017,ac-0qng7j4-shard-00-02.024tdsc.mongodb.net:27017/memorygame?ssl=true&replicaSet=atlas-6po182-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
